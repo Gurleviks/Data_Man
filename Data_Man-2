@@ -1,0 +1,82 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOtsRJVv5VYkdRy5jIn9eLi",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Gurleviks/Data_Man/blob/main/Data_Man-2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 7,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "N4Fz1rVOBcmU",
+        "outputId": "bee086d8-e482-4f24-feb4-7e42350cede7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Cloning into 'Data_Man'...\n",
+            "remote: Enumerating objects: 3, done.\u001b[K\n",
+            "remote: Counting objects: 100% (3/3), done.\u001b[K\n",
+            "remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0\u001b[K\n",
+            "Unpacking objects: 100% (3/3), 593 bytes | 593.00 KiB/s, done.\n",
+            "    Year WHO region            Country Beverage Types  Display Value\n",
+            "2   1985     Africa       Cte d'Ivoire           Wine           1.62\n",
+            "6   1987     Africa          Mauritius           Wine           0.13\n",
+            "7   1985     Africa             Angola        Spirits           0.39\n",
+            "9   1984     Africa            Nigeria          Other           6.10\n",
+            "10  1987     Africa           Botswana           Wine           0.20\n",
+            "..   ...        ...                ...            ...            ...\n",
+            "93  1987     Africa         Madagascar          Other            NaN\n",
+            "94  1985     Europe            Ukraine        Spirits           3.06\n",
+            "95  1984     Africa              Niger          Other           0.00\n",
+            "96  1985     Europe         Luxembourg           Wine           7.38\n",
+            "98  1984     Africa  Equatorial Guinea           Wine           0.00\n",
+            "\n",
+            "[69 rows x 5 columns]\n"
+          ]
+        }
+      ],
+      "source": [
+        "!git clone https://github.com/Gurleviks/Data_Man.git\n",
+        "import pandas as pd\n",
+        "\n",
+        "data = pd.read_csv('//content/world_alcohol - world_alcohol.csv')\n",
+        "\n",
+        "who_regions = ['Africa', 'Eastern Mediterranean', 'Europe']\n",
+        "\n",
+        "filtered_data = data[data['WHO region'].isin(who_regions)]\n",
+        "\n",
+        "filtered_data = filtered_data[['Year', 'WHO region', 'Country', 'Beverage Types', 'Display Value']]\n",
+        "\n",
+        "print(filtered_data)\n"
+      ]
+    }
+  ]
+}
